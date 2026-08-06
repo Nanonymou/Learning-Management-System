@@ -1,0 +1,1017 @@
+[
+  {
+    "id": "bab-1",
+    "order": 1,
+    "code": "I",
+    "title": "PENDAHULUAN",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Tujuan Training",
+        "id": "bab-1-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Setelah mengikuti pelatihan ini peserta mampu:",
+        "id": "bab-1-b2"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Memahami prinsip Food Safety.",
+          "Mengenali bahaya pangan.",
+          "Mencegah kontaminasi.",
+          "Menerapkan higiene sanitasi.",
+          "Menjaga keamanan pangan mulai penerimaan hingga penyajian."
+        ],
+        "id": "bab-1-b3"
+      }
+    ]
+  },
+  {
+    "id": "bab-2",
+    "order": 2,
+    "code": "II",
+    "title": "APA ITU FOOD SAFETY",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Food Safety merupakan seluruh upaya untuk memastikan pangan tetap aman dikonsumsi melalui penerapan higiene, sanitasi, pengendalian bahaya, serta pengawasan pada seluruh proses pengolahan makanan.",
+        "id": "bab-2-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tujuannya yaitu:",
+        "id": "bab-2-b2"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Melindungi kesehatan konsumen.",
+          "Mencegah keracunan makanan.",
+          "Menjamin kualitas makanan.",
+          "Memenuhi persyaratan higiene sanitasi pangan."
+        ],
+        "id": "bab-2-b3"
+      }
+    ]
+  },
+  {
+    "id": "bab-3",
+    "order": 3,
+    "code": "III",
+    "title": "FOODBORNE DISEASE",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Foodborne Disease merupakan penyakit yang disebabkan oleh makanan atau minuman yang terkontaminasi.",
+        "id": "bab-3-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Gejala yang sering muncul:",
+        "id": "bab-3-b2"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Diare",
+          "Mual",
+          "Muntah",
+          "Nyeri Perut",
+          "Demam"
+        ],
+        "id": "bab-3-b3"
+      },
+      {
+        "type": "paragraph",
+        "text": "Penyebab utama:",
+        "id": "bab-3-b4"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Bakteri",
+          "Virus",
+          "Jamur",
+          "Parasit",
+          "Bahan Kimia"
+        ],
+        "id": "bab-3-b5"
+      }
+    ]
+  },
+  {
+    "id": "bab-4",
+    "order": 4,
+    "code": "IV",
+    "title": "JENIS KONTAMINASI",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "1. Kontaminasi Fisik",
+        "id": "bab-4-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Contoh:",
+        "id": "bab-4-b2"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Rambut",
+          "Batu",
+          "Kaca",
+          "Plastik",
+          "Logam",
+          "Serangga"
+        ],
+        "id": "bab-4-b3"
+      },
+      {
+        "type": "heading",
+        "text": "2. Kontaminasi Kimia",
+        "id": "bab-4-b4"
+      },
+      {
+        "type": "paragraph",
+        "text": "Contoh:",
+        "id": "bab-4-b5"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Pestisida",
+          "Deterjen",
+          "Sanitizer",
+          "Oli",
+          "Pelumas",
+          "Logam berat"
+        ],
+        "id": "bab-4-b6"
+      },
+      {
+        "type": "heading",
+        "text": "3. Kontaminasi Biologi",
+        "id": "bab-4-b7"
+      },
+      {
+        "type": "paragraph",
+        "text": "Contoh:",
+        "id": "bab-4-b8"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Salmonella",
+          "E.coli",
+          "Listeria",
+          "Norovirus",
+          "Hepatitis A"
+        ],
+        "id": "bab-4-b9"
+      }
+    ]
+  },
+  {
+    "id": "bab-5",
+    "order": 5,
+    "code": "V",
+    "title": "SUMBER KONTAMINASI",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Kuman berasal dari:",
+        "id": "bab-5-b1"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Manusia",
+          "Tangan",
+          "Air",
+          "Tanah",
+          "Sampah",
+          "Hewan",
+          "Serangga",
+          "Peralatan",
+          "Bahan makanan mentah"
+        ],
+        "id": "bab-5-b2"
+      }
+    ]
+  },
+  {
+    "id": "bab-6",
+    "order": 6,
+    "code": "VI",
+    "title": "PERSONAL HYGIENE",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Setiap Food Handler wajib:",
+        "id": "bab-6-b1"
+      },
+      {
+        "type": "list_check",
+        "ok": true,
+        "items": [
+          "Mencuci tangan dengan benar",
+          "Menggunakan Hairnet",
+          "Menggunakan Apron",
+          "Menggunakan Safety Shoes",
+          "Menggunakan Masker",
+          "Menggunakan Sarung Tangan bila diperlukan",
+          "Menjaga kebersihan kuku",
+          "Menggunakan seragam bersih"
+        ],
+        "id": "bab-6-b2"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tidak diperbolehkan:",
+        "id": "bab-6-b3"
+      },
+      {
+        "type": "list_check",
+        "ok": false,
+        "items": [
+          "Memakai cincin",
+          "Memakai jam tangan",
+          "Memakai gelang",
+          "Merokok",
+          "Meludah",
+          "Bersin ke arah makanan",
+          "Mengolah makanan saat sakit"
+        ],
+        "id": "bab-6-b4"
+      }
+    ]
+  },
+  {
+    "id": "bab-7",
+    "order": 7,
+    "code": "VII",
+    "title": "FIVE KEYS TO SAFER FOOD",
+    "blocks": [
+      {
+        "type": "list_bullet",
+        "items": [
+          "Jaga Kebersihan",
+          "Pisahkan bahan mentah dan matang",
+          "Masak hingga matang sempurna",
+          "Simpan pada suhu aman",
+          "Gunakan air dan bahan baku yang aman"
+        ],
+        "id": "bab-7-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ini merupakan prinsip dasar pencegahan kontaminasi selama proses pengolahan pangan.",
+        "id": "bab-7-b2"
+      }
+    ]
+  },
+  {
+    "id": "bab-8",
+    "order": 8,
+    "code": "VIII",
+    "title": "CROSS CONTAMINATION",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Cross Contamination adalah perpindahan mikroorganisme dari bahan mentah ke makanan siap konsumsi.",
+        "id": "bab-8-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Pencegahan:",
+        "id": "bab-8-b2"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Cutting Board berbeda warna",
+          "Pisau berbeda",
+          "Wadah berbeda",
+          "Penyimpanan terpisah",
+          "Cuci tangan",
+          "Sanitasi peralatan"
+        ],
+        "id": "bab-8-b3"
+      }
+    ]
+  },
+  {
+    "id": "bab-9",
+    "order": 9,
+    "code": "IX",
+    "title": "CCP (CRITICAL CONTROL POINT)",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Apa itu CCP?",
+        "id": "bab-9-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Critical Control Point (CCP) adalah tahapan proses dimana pengendalian harus dilakukan untuk mencegah, menghilangkan, atau mengurangi bahaya pangan hingga batas yang dapat diterima.",
+        "id": "bab-9-b2"
+      },
+      {
+        "type": "heading",
+        "text": "Contoh CCP di Catering",
+        "id": "bab-9-b3"
+      },
+      {
+        "type": "heading",
+        "text": "Receiving",
+        "id": "bab-9-b4"
+      },
+      {
+        "type": "list_check",
+        "ok": true,
+        "items": [
+          "Suhu Frozen ≤ -18°C",
+          "Kemasan utuh",
+          "Tidak Expired"
+        ],
+        "id": "bab-9-b5"
+      },
+      {
+        "type": "heading",
+        "text": "Storage",
+        "id": "bab-9-b6"
+      },
+      {
+        "type": "list_check",
+        "ok": true,
+        "items": [
+          "Chiller 1–4°C dan 5-10°C",
+          "Freezer ≤ -18°C",
+          "Dry Storage 18–25°C"
+        ],
+        "id": "bab-9-b7"
+      },
+      {
+        "type": "heading",
+        "text": "Preparation",
+        "id": "bab-9-b8"
+      },
+      {
+        "type": "list_check",
+        "ok": true,
+        "items": [
+          "Pisahkan mentah & matang",
+          "Gunakan alat berbeda",
+          "Sanitasi meja kerja"
+        ],
+        "id": "bab-9-b9"
+      },
+      {
+        "type": "heading",
+        "text": "Cooking",
+        "id": "bab-9-b10"
+      },
+      {
+        "type": "list_check",
+        "ok": true,
+        "items": [
+          "Suhu inti makanan minimal 75°C",
+          "Gunakan Food Thermometer"
+        ],
+        "id": "bab-9-b11"
+      },
+      {
+        "type": "heading",
+        "text": "Holding",
+        "id": "bab-9-b12"
+      },
+      {
+        "type": "temperature",
+        "items": [
+          "Hot Holding ≥60°C",
+          "Cold Holding ≤5°C"
+        ],
+        "id": "bab-9-b13"
+      },
+      {
+        "type": "heading",
+        "text": "Serving",
+        "id": "bab-9-b14"
+      },
+      {
+        "type": "list_check",
+        "ok": true,
+        "items": [
+          "Gunakan utensil bersih",
+          "Makanan selalu tertutup",
+          "Hindari kontak langsung dengan tangan"
+        ],
+        "id": "bab-9-b15"
+      }
+    ]
+  },
+  {
+    "id": "bab-10",
+    "order": 10,
+    "code": "X",
+    "title": "TEMPERATURE DANGER ZONE",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Zona Bahaya Suhu",
+        "id": "bab-10-b1"
+      },
+      {
+        "type": "temperature",
+        "items": [
+          "5°C – 60°C"
+        ],
+        "id": "bab-10-b2"
+      },
+      {
+        "type": "paragraph",
+        "text": "Pada suhu tersebut bakteri berkembang biak sangat cepat.",
+        "id": "bab-10-b3"
+      },
+      {
+        "type": "heading",
+        "text": "Aman",
+        "id": "bab-10-b4"
+      },
+      {
+        "type": "temperature",
+        "items": [
+          "Frozen ≤ -18°C",
+          "Chiller 5 – 10°C",
+          "Hot Holding ≥65°C",
+          "Cooking ≥75°C"
+        ],
+        "id": "bab-10-b5"
+      }
+    ]
+  },
+  {
+    "id": "bab-11",
+    "order": 11,
+    "code": "XI",
+    "title": "THAWING YANG BENAR",
+    "blocks": [
+      {
+        "type": "list_check",
+        "ok": true,
+        "items": [
+          "Dalam Chiller",
+          "Tetap tertutup",
+          "Dipisahkan per jenis"
+        ],
+        "id": "bab-11-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tidak diperbolehkan:",
+        "id": "bab-11-b2"
+      },
+      {
+        "type": "list_check",
+        "ok": false,
+        "items": [
+          "Suhu ruang",
+          "Air panas",
+          "Matahari langsung"
+        ],
+        "id": "bab-11-b3"
+      }
+    ]
+  },
+  {
+    "id": "bab-12",
+    "order": 12,
+    "code": "XII",
+    "title": "PENYIMPANAN MAKANAN MATANG",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "0–2 jam",
+        "id": "bab-12-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Masih aman.",
+        "id": "bab-12-b2"
+      },
+      {
+        "type": "paragraph",
+        "text": "2–4 jam",
+        "id": "bab-12-b3"
+      },
+      {
+        "type": "paragraph",
+        "text": "Segera dikonsumsi.",
+        "id": "bab-12-b4"
+      },
+      {
+        "type": "paragraph",
+        "text": "Lebih dari 4 jam",
+        "id": "bab-12-b5"
+      },
+      {
+        "type": "paragraph",
+        "text": "Harus dibuang.",
+        "id": "bab-12-b6"
+      }
+    ]
+  },
+  {
+    "id": "bab-13",
+    "order": 13,
+    "code": "XIII",
+    "title": "PENERIMAAN BAHAN MAKANAN",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Pastikan:",
+        "id": "bab-13-b1"
+      },
+      {
+        "type": "list_check",
+        "ok": true,
+        "items": [
+          "Kemasan utuh",
+          "Tidak penyok",
+          "Tidak bocor",
+          "Tidak Expired",
+          "Suhu sesuai",
+          "Kendaraan bersih",
+          "Tidak tercampur bahan kimia"
+        ],
+        "id": "bab-13-b2"
+      }
+    ]
+  },
+  {
+    "id": "bab-14",
+    "order": 14,
+    "code": "XIV",
+    "title": "CLEAN AS YOU GO",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Prinsip bekerja:",
+        "id": "bab-14-b1"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Bersihkan segera",
+          "Sanitasi setelah digunakan",
+          "Pisahkan alat kebersihan",
+          "Tutup tempat sampah",
+          "Kendalikan hama"
+        ],
+        "id": "bab-14-b2"
+      }
+    ]
+  },
+  {
+    "id": "bab-15",
+    "order": 15,
+    "code": "XV",
+    "title": "TANGGUNG JAWAB FOOD HANDLER",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Setiap Food Handler wajib:",
+        "id": "bab-15-b1"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Mematuhi SOP.",
+          "Menjaga higiene diri.",
+          "Menggunakan APD.",
+          "Melakukan pengecekan suhu.",
+          "Melakukan sanitasi area kerja.",
+          "Melaporkan apabila sakit.",
+          "Menolak bahan makanan yang tidak memenuhi standar."
+        ],
+        "id": "bab-15-b2"
+      }
+    ]
+  },
+  {
+    "id": "bab-16",
+    "order": 16,
+    "code": "XVI",
+    "title": "STUDI KASUS & TEMUAN FOOD SAFETY YANG SERING TERJADI DI SITE",
+    "blocks": [
+      {
+        "type": "heading",
+        "text": "Mengapa Temuan Masih Terjadi?",
+        "id": "bab-16-b1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sebagian besar insiden keamanan pangan bukan disebabkan oleh kurangnya pengetahuan, melainkan karena:",
+        "id": "bab-16-b2"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Tidak disiplin menjalankan SOP.",
+          "Terburu-buru saat bekerja.",
+          "Kurangnya pengawasan.",
+          "Tidak melakukan pengecekan sebelum pekerjaan dimulai.",
+          "Menganggap pelanggaran kecil sebagai hal yang biasa."
+        ],
+        "id": "bab-16-b3"
+      },
+      {
+        "type": "heading",
+        "text": "10 TEMUAN FOOD SAFETY YANG PALING SERING TERJADI",
+        "id": "bab-16-b4"
+      },
+      {
+        "type": "heading",
+        "text": "1. Hairnet Tidak Menutupi Seluruh Rambut",
+        "id": "bab-16-b5"
+      },
+      {
+        "type": "heading",
+        "text": "TemuanMasih terdapat rambut keluar dari hairnet sehingga berpotensi mencemari makanan.",
+        "id": "bab-16-b6"
+      },
+      {
+        "type": "heading",
+        "text": "Risiko",
+        "id": "bab-16-b7"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Kontaminasi fisik.",
+          "Keluhan pelanggan.",
+          "Penolakan makanan."
+        ],
+        "id": "bab-16-b8"
+      },
+      {
+        "type": "heading",
+        "text": "Pengendalian✔ Gunakan hairnet hingga seluruh rambut tertutup sebelum memasuki area produksi.",
+        "id": "bab-16-b9"
+      },
+      {
+        "type": "heading",
+        "text": "2. Tidak Mencuci Tangan dengan Benar",
+        "id": "bab-16-b10"
+      },
+      {
+        "type": "heading",
+        "text": "TemuanKaryawan langsung memegang makanan setelah:",
+        "id": "bab-16-b11"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Memegang bahan mentah.",
+          "Dari toilet.",
+          "Memegang sampah.",
+          "Batuk atau bersin."
+        ],
+        "id": "bab-16-b12"
+      },
+      {
+        "type": "heading",
+        "text": "RisikoKontaminasi bakteri dan virus.",
+        "id": "bab-16-b13"
+      },
+      {
+        "type": "heading",
+        "text": "PengendalianIkuti prosedur 6 langkah cuci tangan dan cuci tangan pada waktu-waktu kritis.",
+        "id": "bab-16-b14"
+      },
+      {
+        "type": "heading",
+        "text": "3. Tidak Menggunakan Food Thermometer",
+        "id": "bab-16-b15"
+      },
+      {
+        "type": "heading",
+        "text": "TemuanKematangan makanan hanya diperkirakan secara visual.",
+        "id": "bab-16-b16"
+      },
+      {
+        "type": "heading",
+        "text": "RisikoMakanan belum mencapai suhu aman sehingga bakteri patogen masih hidup.",
+        "id": "bab-16-b17"
+      },
+      {
+        "type": "temperature",
+        "items": [
+          "PengendalianGunakan thermometer yang telah dikalibrasi dan pastikan suhu inti makanan minimal 75°C."
+        ],
+        "id": "bab-16-b18"
+      },
+      {
+        "type": "heading",
+        "text": "4. Suhu Bain Marie Tidak Sesuai Standar",
+        "id": "bab-16-b19"
+      },
+      {
+        "type": "temperature",
+        "items": [
+          "TemuanMakanan panas disimpan pada suhu di bawah 60°C."
+        ],
+        "id": "bab-16-b20"
+      },
+      {
+        "type": "heading",
+        "text": "RisikoMasuk ke Temperature Danger Zone sehingga bakteri berkembang dengan cepat.",
+        "id": "bab-16-b21"
+      },
+      {
+        "type": "heading",
+        "text": "PengendalianMonitoring suhu secara berkala dan catat pada log sheet.",
+        "id": "bab-16-b22"
+      },
+      {
+        "type": "heading",
+        "text": "5. Cross Contamination",
+        "id": "bab-16-b23"
+      },
+      {
+        "type": "heading",
+        "text": "TemuanMenggunakan talenan atau pisau yang sama untuk bahan mentah dan makanan matang.",
+        "id": "bab-16-b24"
+      },
+      {
+        "type": "heading",
+        "text": "RisikoPerpindahan bakteri dari bahan mentah ke makanan siap konsumsi.",
+        "id": "bab-16-b25"
+      },
+      {
+        "type": "heading",
+        "text": "PengendalianGunakan color coding equipment dan lakukan sanitasi setelah digunakan.",
+        "id": "bab-16-b26"
+      },
+      {
+        "type": "heading",
+        "text": "6. Penyimpanan Chiller Tidak Sesuai",
+        "id": "bab-16-b27"
+      },
+      {
+        "type": "heading",
+        "text": "TemuanBahan mentah ditempatkan di atas makanan matang atau chiller terlalu penuh.",
+        "id": "bab-16-b28"
+      },
+      {
+        "type": "heading",
+        "text": "RisikoKontaminasi silang dan suhu penyimpanan tidak stabil.",
+        "id": "bab-16-b29"
+      },
+      {
+        "type": "heading",
+        "text": "PengendalianSusun bahan sesuai jenis dan pastikan sirkulasi udara tetap baik.",
+        "id": "bab-16-b30"
+      },
+      {
+        "type": "heading",
+        "text": "7. FIFO dan FEFO Tidak Diterapkan",
+        "id": "bab-16-b31"
+      },
+      {
+        "type": "heading",
+        "text": "TemuanBahan baru ditempatkan di depan bahan lama.",
+        "id": "bab-16-b32"
+      },
+      {
+        "type": "heading",
+        "text": "RisikoBahan kedaluwarsa masih tersimpan dan berpotensi digunakan.",
+        "id": "bab-16-b33"
+      },
+      {
+        "type": "heading",
+        "text": "PengendalianTerapkan sistem FIFO (First In First Out) dan FEFO (First Expired First Out) pada seluruh penyimpanan.",
+        "id": "bab-16-b34"
+      },
+      {
+        "type": "heading",
+        "text": "8. Bahan Kimia Disimpan Bersama Bahan Pangan",
+        "id": "bab-16-b35"
+      },
+      {
+        "type": "heading",
+        "text": "TemuanChemical cleaning berada pada area yang sama dengan bahan makanan.",
+        "id": "bab-16-b36"
+      },
+      {
+        "type": "heading",
+        "text": "RisikoKontaminasi kimia.",
+        "id": "bab-16-b37"
+      },
+      {
+        "type": "heading",
+        "text": "PengendalianSimpan bahan kimia pada ruang khusus dengan label yang jelas.",
+        "id": "bab-16-b38"
+      },
+      {
+        "type": "heading",
+        "text": "9. Food Handler Tetap Bekerja Saat Sakit",
+        "id": "bab-16-b39"
+      },
+      {
+        "type": "heading",
+        "text": "TemuanKaryawan tetap mengolah makanan meskipun mengalami diare, muntah, demam, atau flu.",
+        "id": "bab-16-b40"
+      },
+      {
+        "type": "heading",
+        "text": "RisikoPenularan penyakit melalui makanan.",
+        "id": "bab-16-b41"
+      },
+      {
+        "type": "heading",
+        "text": "PengendalianSegera laporkan kepada atasan dan tidak diperkenankan menangani makanan sampai dinyatakan layak bekerja.",
+        "id": "bab-16-b42"
+      },
+      {
+        "type": "heading",
+        "text": "10. Dokumentasi Monitoring Tidak Lengkap",
+        "id": "bab-16-b43"
+      },
+      {
+        "type": "heading",
+        "text": "TemuanChecklist suhu, sanitasi, penerimaan bahan, atau CCP tidak diisi dengan lengkap.",
+        "id": "bab-16-b44"
+      },
+      {
+        "type": "heading",
+        "text": "RisikoProses pengendalian tidak dapat dibuktikan dan menyulitkan investigasi apabila terjadi insiden.",
+        "id": "bab-16-b45"
+      },
+      {
+        "type": "heading",
+        "text": "PengendalianPastikan seluruh formulir monitoring diisi secara akurat, lengkap, dan tepat waktu.",
+        "id": "bab-16-b46"
+      }
+    ]
+  },
+  {
+    "id": "bab-17",
+    "order": 17,
+    "code": "XVII",
+    "title": "RINGKASAN MATERI (KEY TAKEAWAYS)",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Setelah mengikuti pelatihan ini, setiap Food Handler diharapkan memahami bahwa keamanan pangan merupakan tanggung jawab bersama yang harus diterapkan secara konsisten dalam setiap tahapan pengolahan makanan.",
+        "id": "bab-17-b1"
+      },
+      {
+        "type": "heading",
+        "text": "Poin-poin penting yang harus selalu diingat adalah:",
+        "id": "bab-17-b2"
+      },
+      {
+        "type": "heading",
+        "text": "1. Terapkan Personal Hygiene",
+        "id": "bab-17-b3"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Cuci tangan sesuai prosedur.",
+          "Gunakan APD lengkap.",
+          "Jangan bekerja saat sakit."
+        ],
+        "id": "bab-17-b4"
+      },
+      {
+        "type": "heading",
+        "text": "2. Cegah Kontaminasi Silang",
+        "id": "bab-17-b5"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Pisahkan bahan mentah dan matang.",
+          "Gunakan peralatan sesuai fungsinya.",
+          "Lakukan sanitasi secara berkala."
+        ],
+        "id": "bab-17-b6"
+      },
+      {
+        "type": "heading",
+        "text": "3. Kendalikan Suhu Makanan",
+        "id": "bab-17-b7"
+      },
+      {
+        "type": "temperature",
+        "items": [
+          "Frozen ≤ -18°C",
+          "Chiller 0–4°C",
+          "Hot Holding ≥60°C",
+          "Cooking ≥75°C"
+        ],
+        "id": "bab-17-b8"
+      },
+      {
+        "type": "heading",
+        "text": "4. Terapkan CCP (Critical Control Point)",
+        "id": "bab-17-b9"
+      },
+      {
+        "type": "paragraph",
+        "text": "Lakukan pengendalian pada setiap titik kritis mulai dari:",
+        "id": "bab-17-b10"
+      },
+      {
+        "type": "list_bullet",
+        "items": [
+          "Receiving",
+          "Storage",
+          "Preparation",
+          "Cooking",
+          "Holding",
+          "Serving"
+        ],
+        "id": "bab-17-b11"
+      },
+      {
+        "type": "heading",
+        "text": "5. Terapkan Prinsip \"Clean As You Go\"",
+        "id": "bab-17-b12"
+      },
+      {
+        "type": "paragraph",
+        "text": "Menjaga kebersihan area kerja setiap saat akan mengurangi risiko kontaminasi.",
+        "id": "bab-17-b13"
+      },
+      {
+        "type": "heading",
+        "text": "6. Laporkan Setiap Penyimpangan",
+        "id": "bab-17-b14"
+      },
+      {
+        "type": "paragraph",
+        "text": "Apabila ditemukan kondisi yang berpotensi membahayakan keamanan pangan, segera laporkan kepada Supervisor atau HSE agar tindakan perbaikan dapat segera dilakukan.",
+        "id": "bab-17-b15"
+      }
+    ]
+  },
+  {
+    "id": "bab-18",
+    "order": 18,
+    "code": "XVIII",
+    "title": "KOMITMEN FOOD HANDLER",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Sebagai Food Handler , saya berkomitmen untuk:",
+        "id": "bab-18-b1"
+      },
+      {
+        "type": "list_check",
+        "ok": true,
+        "items": [
+          "Menjaga kebersihan diri sebelum, selama, dan setelah bekerja.",
+          "Mengolah makanan sesuai SOP perusahaan.",
+          "Mencegah segala bentuk kontaminasi pangan.",
+          "Mengendalikan suhu makanan sesuai standar.",
+          "Menggunakan APD dengan benar.",
+          "Menjaga kebersihan area kerja dan peralatan.",
+          "Melaporkan setiap ketidaksesuaian yang berpotensi mengganggu keamanan pangan.",
+          "Menjadikan Food Safety sebagai budaya kerja sehari-hari."
+        ],
+        "id": "bab-18-b2"
+      },
+      {
+        "type": "heading",
+        "text": "PENUTUP",
+        "id": "bab-18-b3"
+      },
+      {
+        "type": "paragraph",
+        "text": "Keamanan pangan bukan hanya sekadar memenuhi persyaratan regulasi, tetapi merupakan bentuk tanggung jawab profesional dalam melindungi kesehatan setiap konsumen.",
+        "id": "bab-18-b4"
+      },
+      {
+        "type": "paragraph",
+        "text": "Keberhasilan penerapan Food Safety sangat bergantung pada kedisiplinan, kepedulian, dan konsistensi seluruh Food Handler dalam menjalankan prosedur kerja yang telah ditetapkan. Setiap tindakan sederhana, seperti mencuci tangan dengan benar, menjaga kebersihan peralatan, mengendalikan suhu makanan, hingga mencegah kontaminasi silang, memiliki peran penting dalam menghasilkan makanan yang aman dan berkualitas.",
+        "id": "bab-18-b5"
+      },
+      {
+        "type": "paragraph",
+        "text": "Melalui penerapan prinsip higiene sanitasi, pengendalian titik kritis (CCP), serta budaya kerja yang berorientasi pada keamanan pangan, diharapkan seluruh karyawan dapat memberikan pelayanan terbaik kepada pelanggan serta mendukung terciptanya operasional catering yang aman, sehat, dan memenuhi standar perusahaan maupun peraturan yang berlaku.",
+        "id": "bab-18-b6"
+      },
+      {
+        "type": "quote",
+        "text": "\"Food Safety is Everyone's Responsibility – Safe Food Starts With Me.\"",
+        "id": "bab-18-b7"
+      }
+    ]
+  }
+]

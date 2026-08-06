@@ -48,11 +48,13 @@ export const NAVIGATION: NavGroup[] = [
   {
     title: 'Admin',
     items: [
-      { label: 'Company Settings', to: ROUTES.adminCompanySettings, icon: Settings },
+      { label: 'Dashboard Admin', to: ROUTES.admin, icon: LayoutDashboard, end: true },
       { label: 'Peserta', to: ROUTES.adminPeserta, icon: Users },
       { label: 'Bank Soal', to: ROUTES.adminBankSoal, icon: Database },
       { label: 'Lokasi', to: ROUTES.adminLokasi, icon: MapPin },
       { label: 'Jabatan', to: ROUTES.adminJabatan, icon: Briefcase },
+      { label: 'Sertifikat', to: ROUTES.adminSertifikat, icon: Award },
+      { label: 'Company Settings', to: ROUTES.adminCompanySettings, icon: Settings },
       { label: 'Export', to: ROUTES.adminExport, icon: FileSpreadsheet },
     ],
   },

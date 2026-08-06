@@ -6,16 +6,28 @@ Learning Management System (LMS) berbasis web untuk pelatihan internal — **mod
 
 ## Status Pengembangan
 
-**Tahap 2** — fondasi aplikasi. Yang sudah tersedia:
+Fondasi + fitur inti selesai (Tahap 2–10). Yang sudah tersedia:
 
-- ✅ Struktur folder scalable (feature-based)
-- ✅ Routing (React Router) + placeholder halaman fitur
-- ✅ Theme + **Dark Mode**
-- ✅ Layout (Sidebar, Header, Footer, shell responsif)
-- ✅ **Company Settings** (berfungsi; identitas perusahaan tanpa hardcode)
-- ✅ Supabase client (konfigurasi saja)
+- ✅ Struktur folder scalable (feature-based) + routing (lazy-loaded)
+- ✅ Theme + **Dark Mode**, layout responsif (Sidebar, Header, Footer)
+- ✅ **Company Settings** (identitas perusahaan tanpa hardcode)
+- ✅ **Skema Supabase** (`supabase/`) — tabel, relasi, RLS, helper
+- ✅ **Dashboard** — statistik nyata, grafik, timeline alur training
+- ✅ **Materi** — e-book dari DOCX (accordion, search, bookmark, progress, box)
+- ✅ **Daftar Hadir** — validasi field wajib & 1×/hari, gating materi 100%
+- ✅ **Ujian** — 10 soal acak (dari ≥33 bank), opsi acak, timer 15 mnt, retry
+- ✅ **Hasil Ujian** — nilai, benar/salah, status, pembahasan
+- ✅ **Sertifikat** — terbit otomatis saat lulus, nomor unik, QR, PDF, validasi publik
+- ✅ **Riwayat Training** & **Dashboard Admin** (kelola peserta/jabatan/lokasi/soal/sertifikat, export Excel/PDF)
 
-Belum dibuat (tahap berikutnya): database, quiz, sertifikat, export, auth.
+Belum dibuat: **auth admin** (rute admin masih terbuka), integrasi data ke Supabase
+(saat ini memakai adapter localStorage yang siap di-swap).
+
+### Catatan data layer
+Data disimpan lokal (localStorage) melalui **service** per fitur. Antarmuka
+service dirancang agar tinggal diganti implementasinya ke Supabase tanpa
+mengubah komponen. Materi berasal dari ingest DOCX (`scripts/ingest-docx.py`
+→ `src/features/material/data/`).
 
 ## Menjalankan
 
@@ -44,9 +56,22 @@ src/
 │   ├── layout/                # AppLayout, Sidebar, Header, Footer, BrandLogo, ThemeToggle
 │   └── common/                # ComingSoon, NotFoundPage
 └── features/                  # Modul per fitur (scalable)
-    ├── company-settings/      # types, service, provider, form, page
-    └── dashboard/
+    ├── company-settings/      # identitas perusahaan
+    ├── dashboard/             # statistik & agregasi
+    ├── material/              # e-book (data ingest DOCX, reader, progress)
+    ├── attendance/            # daftar hadir + validasi
+    ├── quiz/                  # bank soal, ujian, penilaian
+    ├── certificate/           # penerbitan, QR, PDF, validasi
+    ├── history/               # riwayat training
+    ├── admin/                 # dashboard admin, kelola data, export
+    ├── participant/           # identitas peserta (tanpa auth)
+    ├── master/                # jabatan & lokasi
+    └── training/              # gating alur (useTrainingFlow, timeline)
 ```
+
+Arsitektur berlapis: **komponen** (UI) → **hooks** → **service** (logika + data)
+→ penyimpanan. Tidak ada logika bisnis di komponen; tidak ada identitas
+perusahaan yang di-hardcode.
 
 ## Prinsip
 
