@@ -11,7 +11,10 @@ export const ROUTES = {
   sertifikat: '/sertifikat',
   riwayat: '/riwayat',
 
-  // Area admin (belum ada auth pada tahap ini)
+  // Autentikasi admin
+  login: '/login',
+
+  // Area admin (terkunci — wajib login)
   admin: '/admin',
   adminCompanySettings: '/admin/company-settings',
   adminPeserta: '/admin/peserta',

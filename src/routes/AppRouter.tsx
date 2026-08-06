@@ -2,6 +2,7 @@ import { lazy, Suspense, type ReactNode } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Skeleton } from '@/components/feedback/Skeleton';
+import { RequireAuth } from '@/features/auth/RequireAuth';
 import NotFoundPage from '@/components/common/NotFoundPage';
 import { ROUTES } from '@/config/routes';
 
@@ -22,6 +23,7 @@ const CertificateListPage = lazy(() => import('@/features/certificate/pages/Cert
 const CertificateDetailPage = lazy(() => import('@/features/certificate/pages/CertificateDetailPage'));
 const ValidatePage = lazy(() => import('@/features/certificate/pages/ValidatePage'));
 const HistoryPage = lazy(() => import('@/features/history/pages/HistoryPage'));
+const LoginPage = lazy(() => import('@/features/auth/pages/LoginPage'));
 
 // Company Settings & Admin
 const CompanySettingsPage = lazy(() => import('@/features/company-settings/pages/CompanySettingsPage'));
@@ -63,19 +65,25 @@ const router = createBrowserRouter([
       { path: '/sertifikat/:certId', element: <Lazy><CertificateDetailPage /></Lazy> },
       { path: ROUTES.riwayat, element: <Lazy><HistoryPage /></Lazy> },
 
-      // Admin
-      { path: ROUTES.admin, element: <Lazy><AdminDashboardPage /></Lazy> },
-      { path: ROUTES.adminCompanySettings, element: <Lazy><CompanySettingsPage /></Lazy> },
-      { path: ROUTES.adminPeserta, element: <Lazy><ManagePesertaPage /></Lazy> },
-      { path: ROUTES.adminBankSoal, element: <Lazy><ManageBankSoalPage /></Lazy> },
-      { path: ROUTES.adminJabatan, element: <Lazy><ManageJabatanPage /></Lazy> },
-      { path: ROUTES.adminLokasi, element: <Lazy><ManageLokasiPage /></Lazy> },
-      { path: ROUTES.adminSertifikat, element: <Lazy><ManageSertifikatPage /></Lazy> },
-      { path: ROUTES.adminExport, element: <Lazy><ExportPage /></Lazy> },
+      // Admin — terkunci di balik login (RequireAuth)
+      {
+        element: <RequireAuth />,
+        children: [
+          { path: ROUTES.admin, element: <Lazy><AdminDashboardPage /></Lazy> },
+          { path: ROUTES.adminCompanySettings, element: <Lazy><CompanySettingsPage /></Lazy> },
+          { path: ROUTES.adminPeserta, element: <Lazy><ManagePesertaPage /></Lazy> },
+          { path: ROUTES.adminBankSoal, element: <Lazy><ManageBankSoalPage /></Lazy> },
+          { path: ROUTES.adminJabatan, element: <Lazy><ManageJabatanPage /></Lazy> },
+          { path: ROUTES.adminLokasi, element: <Lazy><ManageLokasiPage /></Lazy> },
+          { path: ROUTES.adminSertifikat, element: <Lazy><ManageSertifikatPage /></Lazy> },
+          { path: ROUTES.adminExport, element: <Lazy><ExportPage /></Lazy> },
+        ],
+      },
     ],
   },
 
-  // Publik (tanpa shell)
+  // Publik / standalone (tanpa shell)
+  { path: ROUTES.login, element: <Lazy><LoginPage /></Lazy> },
   { path: '/validasi/:certNumber', element: <Lazy><ValidatePage /></Lazy> },
   { path: '*', element: <NotFoundPage /> },
 ]);
