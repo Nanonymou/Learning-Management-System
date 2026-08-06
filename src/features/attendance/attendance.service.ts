@@ -4,6 +4,7 @@ import { uid } from '@/lib/utils/id';
 import { todayISO, nowTime } from '@/lib/utils/format';
 import { upsertCurrentUser, getCurrentUser } from '@/features/participant/participant.service';
 import { positionName, locationName } from '@/features/master/master.service';
+import { syncAttendance } from '@/lib/supabase/sync';
 
 export function listAttendance(): Attendance[] {
   return readCollection<Attendance>(STORAGE_KEYS.attendance);
@@ -80,5 +81,7 @@ export function submitAttendance(input: AttendanceInput): AttendanceResult {
     createdAt: new Date().toISOString(),
   };
   writeCollection(STORAGE_KEYS.attendance, [...listAttendance(), attendance]);
+  // Tulis-tembus ke Supabase agar admin melihatnya lintas perangkat.
+  syncAttendance(user, attendance);
   return { ok: true, attendance };
 }

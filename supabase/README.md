@@ -21,8 +21,16 @@ Total **14 tabel** sesuai [docs/05-database-design.md](../docs/05-database-desig
 
 ## Cara Menerapkan
 
-### Opsi A — SQL Editor (paling cepat)
-Jalankan berurutan pada SQL Editor Supabase: `0001` → `0006`, lalu `seed/0001`.
+### Opsi A — Sekali tempel (paling mudah, disarankan)
+Buka [`schema.sql`](schema.sql) (gabungan semua migrasi + seed), salin seluruh
+isinya ke **Supabase → SQL Editor**, lalu **Run**. Lihat panduan lengkap di
+[`../SUPABASE_SETUP.md`](../SUPABASE_SETUP.md).
+
+### Opsi A2 — SQL Editor per file
+Jalankan berurutan pada SQL Editor Supabase: `0001` → `0007`, lalu `seed/0001`.
+
+> `0007_app_client_access.sql` menambah kolom denormalisasi (nama jabatan/lokasi)
+> dan melonggarkan RLS agar aplikasi klien (tanpa Supabase Auth) dapat menulis.
 
 ### Opsi B — Supabase CLI
 ```bash

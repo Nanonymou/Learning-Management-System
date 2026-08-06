@@ -1,9 +1,11 @@
-import { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ShieldCheck, ShieldX, GraduationCap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { formatDate } from '@/lib/utils/format';
+import { useAsync } from '@/lib/hooks/useAsync';
+import { isSupabaseConfigured } from '@/lib/supabase/client';
+import { fetchCertificateByNumber } from '@/lib/supabase/sync';
 import { useCompanySettings } from '@/features/company-settings/CompanySettingsProvider';
 import { getCertificateByNumber } from '../certificate.service';
 import { ROUTES } from '@/config/routes';
@@ -12,10 +14,16 @@ import { ROUTES } from '@/config/routes';
 export default function ValidatePage() {
   const { certNumber = '' } = useParams();
   const { settings } = useCompanySettings();
-  const cert = useMemo(
-    () => getCertificateByNumber(decodeURIComponent(certNumber)),
-    [certNumber],
-  );
+  const number = decodeURIComponent(certNumber);
+
+  // Utamakan Supabase (validasi lintas perangkat); fallback ke lokal.
+  const { data: cert } = useAsync(async () => {
+    if (isSupabaseConfigured) {
+      const remote = await fetchCertificateByNumber(number);
+      if (remote) return remote;
+    }
+    return getCertificateByNumber(number) ?? null;
+  }, [number]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
@@ -51,7 +59,7 @@ export default function ValidatePage() {
               </div>
               <Badge tone="danger">TIDAK VALID</Badge>
               <p className="text-sm text-muted-foreground">
-                Nomor sertifikat “{decodeURIComponent(certNumber)}” tidak ditemukan.
+                Nomor sertifikat “{number}” tidak ditemukan.
               </p>
             </div>
           )}

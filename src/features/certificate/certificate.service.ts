@@ -5,6 +5,7 @@ import { todayISO } from '@/lib/utils/format';
 import { positionName, locationName } from '@/features/master/master.service';
 import { listUsers } from '@/features/participant/participant.service';
 import { getResult } from '@/features/quiz/quiz.service';
+import { syncCertificate } from '@/lib/supabase/sync';
 import type { CompanySettings } from '@/features/company-settings/types';
 
 /** Sertifikat: penerbitan (hanya untuk lulus), nomor unik, dan validasi. */
@@ -67,6 +68,8 @@ export function issueCertificate(
     createdAt: new Date().toISOString(),
   };
   writeCollection(STORAGE_KEYS.certificates, [...listCertificates(), certificate]);
+  // Tulis-tembus sertifikat ke Supabase (validasi & pantauan admin).
+  syncCertificate(user, certificate);
   return certificate;
 }
 

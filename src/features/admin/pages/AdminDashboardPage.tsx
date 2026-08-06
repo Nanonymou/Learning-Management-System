@@ -1,11 +1,11 @@
-import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, GraduationCap, XCircle, Award, Settings, Database, MapPin, Briefcase, FileSpreadsheet, ChevronRight } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { StatCard } from '@/components/ui/StatCard';
 import { BarList } from '@/components/charts/BarList';
-import { getDashboardStats } from '@/features/dashboard/stats.service';
+import { useAsync } from '@/lib/hooks/useAsync';
+import { getDashboardStats } from '../admin.service';
 import { questionBankSize } from '@/features/quiz/quiz.service';
 import { ROUTES } from '@/config/routes';
 
@@ -19,8 +19,20 @@ const LINKS = [
   { to: ROUTES.adminExport, label: 'Export Data', icon: FileSpreadsheet },
 ];
 
+const EMPTY_STATS = {
+  totalParticipants: 0,
+  totalPassed: 0,
+  totalFailed: 0,
+  totalCertificates: 0,
+  completionRate: 0,
+  passRate: 0,
+  byLocation: [],
+  byPosition: [],
+};
+
 export default function AdminDashboardPage() {
-  const stats = useMemo(() => getDashboardStats(), []);
+  const { data } = useAsync(getDashboardStats, []);
+  const stats = data ?? EMPTY_STATS;
 
   return (
     <div className="space-y-6">

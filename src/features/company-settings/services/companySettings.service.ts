@@ -1,4 +1,9 @@
 import { EMPTY_COMPANY_SETTINGS, type CompanySettings } from '../types';
+import { isSupabaseConfigured } from '@/lib/supabase/client';
+import {
+  loadCompanySettingsRemote,
+  saveCompanySettingsRemote,
+} from '@/lib/supabase/sync';
 
 /**
  * Kontrak service Company Settings.
@@ -36,8 +41,38 @@ export class LocalCompanySettingsService implements CompanySettingsService {
 }
 
 /**
- * Instance service aktif. Titik pergantian tunggal menuju Supabase nanti:
- *   export const companySettingsService = new SupabaseCompanySettingsService();
+ * Implementasi Supabase (dipakai bila env Supabase terisi). Menyimpan identitas
+ * perusahaan secara terpusat sehingga terlihat sama di semua perangkat. Bila
+ * gagal (mis. offline), jatuh ke localStorage sebagai cadangan.
  */
-export const companySettingsService: CompanySettingsService =
-  new LocalCompanySettingsService();
+export class SupabaseCompanySettingsService implements CompanySettingsService {
+  private local = new LocalCompanySettingsService();
+
+  async get(): Promise<CompanySettings> {
+    try {
+      const remote = await loadCompanySettingsRemote();
+      if (remote) {
+        // Cache lokal agar peserta tetap punya salinan.
+        await this.local.save(remote);
+        return remote;
+      }
+    } catch {
+      /* fallback ke lokal */
+    }
+    return this.local.get();
+  }
+
+  async save(settings: CompanySettings): Promise<CompanySettings> {
+    await this.local.save(settings);
+    await saveCompanySettingsRemote(settings);
+    return settings;
+  }
+}
+
+/**
+ * Instance service aktif — Supabase bila dikonfigurasi, jika tidak localStorage.
+ * Titik pergantian tunggal sumber data Company Settings.
+ */
+export const companySettingsService: CompanySettingsService = isSupabaseConfigured
+  ? new SupabaseCompanySettingsService()
+  : new LocalCompanySettingsService();

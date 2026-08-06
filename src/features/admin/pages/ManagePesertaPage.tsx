@@ -6,8 +6,10 @@ import { Card, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { EmptyState } from '@/components/feedback/EmptyState';
+import { Skeleton } from '@/components/feedback/Skeleton';
 import { ConfirmDialog } from '@/components/ui/ConfirmDialog';
 import { useToast } from '@/providers/ToastProvider';
+import { useAsync } from '@/lib/hooks/useAsync';
 import {
   getReportRows,
   deleteParticipant,
@@ -23,10 +25,9 @@ type Pending =
 export default function ManagePesertaPage() {
   const { toast } = useToast();
   const navigate = useNavigate();
-  const [rows, setRows] = useState<ReportRow[]>(() => getReportRows());
+  const { data, loading, reload } = useAsync(getReportRows, []);
+  const rows = data ?? [];
   const [pending, setPending] = useState<Pending>(null);
-
-  const refresh = () => setRows(getReportRows());
 
   const handleConfirm = () => {
     if (!pending) return;
@@ -38,7 +39,7 @@ export default function ManagePesertaPage() {
       toast('Hasil ujian direset.', 'success');
     }
     setPending(null);
-    refresh();
+    reload();
   };
 
   return (
@@ -48,7 +49,9 @@ export default function ManagePesertaPage() {
         description="Lihat, reset hasil ujian, atau hapus data peserta."
       />
 
-      {rows.length === 0 ? (
+      {loading ? (
+        <Skeleton className="h-40 w-full" />
+      ) : rows.length === 0 ? (
         <Card>
           <CardContent>
             <EmptyState icon={Users} title="Belum ada peserta" description="Peserta muncul setelah mengisi daftar hadir." />

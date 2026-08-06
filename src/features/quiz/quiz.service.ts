@@ -15,6 +15,9 @@ import {
 } from '@/lib/storage/localStore';
 import { uid } from '@/lib/utils/id';
 import { shuffle } from '@/lib/utils/format';
+import { getCurrentUser } from '@/features/participant/participant.service';
+import { positionName, locationName } from '@/features/master/master.service';
+import { syncQuizResult } from '@/lib/supabase/sync';
 import { questionBank } from './data/questionBank';
 
 /** Ujian: seleksi soal acak, penilaian, dan pembahasan. */
@@ -105,6 +108,16 @@ export function submitExam(input: SubmitInput): QuizResult {
   const answersMap = readJson<AnswersMap>(STORAGE_KEYS.quizAnswers, {});
   answersMap[result.id] = details;
   writeJson(STORAGE_KEYS.quizAnswers, answersMap);
+
+  // Tulis-tembus hasil ujian ke Supabase (untuk pantauan admin lintas perangkat).
+  const user = getCurrentUser();
+  if (user) {
+    syncQuizResult(user, result, {
+      name: user.fullName,
+      pos: positionName(user.positionId),
+      loc: locationName(user.locationId),
+    });
+  }
 
   return result;
 }

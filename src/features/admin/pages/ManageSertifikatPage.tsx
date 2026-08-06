@@ -1,19 +1,23 @@
-import { useMemo } from 'react';
 import { Award } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Card, CardContent } from '@/components/ui/Card';
 import { EmptyState } from '@/components/feedback/EmptyState';
+import { Skeleton } from '@/components/feedback/Skeleton';
 import { formatDate } from '@/lib/utils/format';
-import { listCertificates } from '@/features/certificate/certificate.service';
+import { useAsync } from '@/lib/hooks/useAsync';
+import { getAllCertificates } from '../admin.service';
 
 export default function ManageSertifikatPage() {
-  const certificates = useMemo(() => listCertificates(), []);
+  const { data, loading } = useAsync(getAllCertificates, []);
+  const certificates = data ?? [];
 
   return (
     <div className="space-y-6">
       <PageHeader title="Sertifikat" description="Seluruh sertifikat yang telah diterbitkan." />
 
-      {certificates.length === 0 ? (
+      {loading ? (
+        <Skeleton className="h-40 w-full" />
+      ) : certificates.length === 0 ? (
         <Card>
           <CardContent>
             <EmptyState icon={Award} title="Belum ada sertifikat diterbitkan" />

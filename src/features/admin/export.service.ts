@@ -7,6 +7,8 @@ function toCells(r: ReportRow): string[] {
   return [r.name, r.position, r.location, r.date, r.score, r.status, r.certificateNumber];
 }
 
+export { getReportRows };
+
 function triggerDownload(blob: Blob, filename: string): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -17,8 +19,8 @@ function triggerDownload(blob: Blob, filename: string): void {
 }
 
 /** Export CSV (dapat dibuka di Excel). */
-export function exportExcel(): void {
-  const rows = getReportRows();
+export async function exportExcel(): Promise<void> {
+  const rows = await getReportRows();
   const esc = (v: string) => `"${v.replace(/"/g, '""')}"`;
   const lines = [HEADERS, ...rows.map(toCells)].map((r) => r.map(esc).join(','));
   // BOM agar Excel mengenali UTF-8.
@@ -29,8 +31,8 @@ export function exportExcel(): void {
 }
 
 /** Export PDF (tabel sederhana). */
-export function exportPdf(title: string): void {
-  const rows = getReportRows();
+export async function exportPdf(title: string): Promise<void> {
+  const rows = await getReportRows();
   const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
   const margin = 12;
   let y = margin;

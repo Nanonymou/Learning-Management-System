@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, Award, ClipboardCheck, FileQuestion } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
@@ -6,15 +5,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { EmptyState } from '@/components/feedback/EmptyState';
+import { Skeleton } from '@/components/feedback/Skeleton';
 import { formatDate, formatDateTime } from '@/lib/utils/format';
-import { positionName, locationName } from '@/features/master/master.service';
+import { useAsync } from '@/lib/hooks/useAsync';
 import { getParticipantDetail } from '../admin.service';
 import { ROUTES } from '@/config/routes';
 
 export default function ParticipantDetailPage() {
   const { userId = '' } = useParams();
   const navigate = useNavigate();
-  const detail = useMemo(() => getParticipantDetail(userId), [userId]);
+  const { data: detail, loading } = useAsync(() => getParticipantDetail(userId), [userId]);
+
+  if (loading) {
+    return <Skeleton className="h-64 w-full" />;
+  }
 
   if (!detail) {
     return (
@@ -26,6 +30,9 @@ export default function ParticipantDetailPage() {
   }
 
   const { user, attendance, results, certificate } = detail;
+  const latest = attendance[0];
+  const pos = latest?.positionName || certificate?.positionName || '-';
+  const loc = latest?.locationName || certificate?.locationName || '-';
 
   return (
     <div className="space-y-6">
@@ -38,7 +45,7 @@ export default function ParticipantDetailPage() {
 
       <PageHeader
         title={user.fullName || '(tanpa nama)'}
-        description={`${positionName(user.positionId)} • ${locationName(user.locationId)}`}
+        description={`${pos} • ${loc}`}
       />
 
       {/* Riwayat Kehadiran */}

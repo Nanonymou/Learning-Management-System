@@ -1,9 +1,9 @@
-import { useMemo } from 'react';
 import { FileSpreadsheet, FileText } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useToast } from '@/providers/ToastProvider';
+import { useAsync } from '@/lib/hooks/useAsync';
 import { useCompanySettings } from '@/features/company-settings/CompanySettingsProvider';
 import { getReportRows } from '../admin.service';
 import { exportExcel, exportPdf } from '../export.service';
@@ -11,7 +11,8 @@ import { exportExcel, exportPdf } from '../export.service';
 export default function ExportPage() {
   const { toast } = useToast();
   const { settings } = useCompanySettings();
-  const count = useMemo(() => getReportRows().length, []);
+  const { data: rows } = useAsync(getReportRows, []);
+  const count = rows?.length ?? 0;
 
   return (
     <div className="space-y-6">
@@ -30,8 +31,8 @@ export default function ExportPage() {
           </p>
           <div className="flex flex-wrap gap-3">
             <Button
-              onClick={() => {
-                exportExcel();
+              onClick={async () => {
+                await exportExcel();
                 toast('File Excel (CSV) diunduh.', 'success');
               }}
             >
@@ -39,8 +40,8 @@ export default function ExportPage() {
             </Button>
             <Button
               variant="outline"
-              onClick={() => {
-                exportPdf(settings.trainingName || 'Data Peserta Training');
+              onClick={async () => {
+                await exportPdf(settings.trainingName || 'Data Peserta Training');
                 toast('File PDF diunduh.', 'success');
               }}
             >
