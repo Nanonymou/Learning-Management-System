@@ -1,6 +1,8 @@
-import { Award } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Award, Eye } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Card, CardContent } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 import { EmptyState } from '@/components/feedback/EmptyState';
 import { Skeleton } from '@/components/feedback/Skeleton';
 import { formatDate } from '@/lib/utils/format';
@@ -8,6 +10,7 @@ import { useAsync } from '@/lib/hooks/useAsync';
 import { getAllCertificates } from '../admin.service';
 
 export default function ManageSertifikatPage() {
+  const navigate = useNavigate();
   const { data, loading } = useAsync(getAllCertificates, []);
   const certificates = data ?? [];
 
@@ -36,6 +39,7 @@ export default function ManageSertifikatPage() {
                     <th className="p-3 font-medium">Lokasi</th>
                     <th className="p-3 font-medium">Nilai</th>
                     <th className="p-3 font-medium">Tanggal</th>
+                    <th className="p-3 font-medium">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -47,6 +51,16 @@ export default function ManageSertifikatPage() {
                       <td className="p-3">{c.locationName}</td>
                       <td className="p-3">{c.score}</td>
                       <td className="p-3">{formatDate(c.issuedDate)}</td>
+                      <td className="p-3">
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={() => navigate(`/sertifikat/${c.id}`)}
+                          title="Lihat & unduh sertifikat"
+                        >
+                          <Eye className="h-4 w-4" />
+                        </Button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

@@ -88,7 +88,10 @@ function certificateRow(c: Certificate): Row {
   return {
     id: c.id,
     user_id: c.userId,
-    quiz_result_id: c.quizResultId || null,
+    // Di-null-kan: sertifikat bersifat mandiri (nama/nilai sudah snapshot),
+    // sehingga tidak bergantung pada baris quiz_result yang mungkin belum
+    // tersinkron lebih dahulu (menghindari kegagalan FK lintas perangkat).
+    quiz_result_id: null,
     certificate_number: c.certificateNumber,
     training_name: c.trainingName,
     participant_name: c.participantName,
@@ -243,6 +246,17 @@ export async function fetchCertificateByNumber(num: string): Promise<Certificate
     .from('certificates')
     .select('*')
     .eq('certificate_number', num)
+    .maybeSingle();
+  if (error || !data) return null;
+  return rowToCertificate(data as Row);
+}
+
+export async function fetchCertificateById(id: string): Promise<Certificate | null> {
+  if (!AVAILABLE()) return null;
+  const { data, error } = await db()
+    .from('certificates')
+    .select('*')
+    .eq('id', id)
     .maybeSingle();
   if (error || !data) return null;
   return rowToCertificate(data as Row);

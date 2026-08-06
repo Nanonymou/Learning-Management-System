@@ -1,11 +1,13 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, Download } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Button } from '@/components/ui/Button';
+import { Skeleton } from '@/components/feedback/Skeleton';
 import { useToast } from '@/providers/ToastProvider';
+import { useAsync } from '@/lib/hooks/useAsync';
 import { useCompanySettings } from '@/features/company-settings/CompanySettingsProvider';
-import { getCertificate } from '../certificate.service';
+import { loadCertificate } from '../certificate.service';
 import { CertificatePreview } from '../components/CertificatePreview';
 import { downloadCertificatePdf } from '../certificatePdf';
 import { ROUTES } from '@/config/routes';
@@ -15,8 +17,17 @@ export default function CertificateDetailPage() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { settings } = useCompanySettings();
-  const cert = useMemo(() => getCertificate(certId), [certId]);
+  const { data: cert, loading } = useAsync(() => loadCertificate(certId), [certId]);
   const [downloading, setDownloading] = useState(false);
+
+  if (loading) {
+    return (
+      <div className="space-y-4">
+        <Skeleton className="h-8 w-40" />
+        <Skeleton className="mx-auto h-80 w-full max-w-3xl" />
+      </div>
+    );
+  }
 
   if (!cert) {
     return (

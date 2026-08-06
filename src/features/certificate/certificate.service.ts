@@ -5,7 +5,8 @@ import { todayISO } from '@/lib/utils/format';
 import { positionName, locationName } from '@/features/master/master.service';
 import { listUsers } from '@/features/participant/participant.service';
 import { getResult } from '@/features/quiz/quiz.service';
-import { syncCertificate } from '@/lib/supabase/sync';
+import { isSupabaseConfigured } from '@/lib/supabase/client';
+import { syncCertificate, fetchCertificateById } from '@/lib/supabase/sync';
 import type { CompanySettings } from '@/features/company-settings/types';
 
 /** Sertifikat: penerbitan (hanya untuk lulus), nomor unik, dan validasi. */
@@ -20,6 +21,20 @@ export function certificatesForUser(userId: string): Certificate[] {
 
 export function getCertificate(id: string): Certificate | undefined {
   return listCertificates().find((c) => c.id === id);
+}
+
+/**
+ * Ambil sertifikat by id: lokal dulu, lalu Supabase (agar admin dapat membuka
+ * sertifikat peserta lain yang dibuat di perangkat berbeda).
+ */
+export async function loadCertificate(id: string): Promise<Certificate | undefined> {
+  const local = getCertificate(id);
+  if (local) return local;
+  if (isSupabaseConfigured) {
+    const remote = await fetchCertificateById(id);
+    if (remote) return remote;
+  }
+  return undefined;
 }
 
 export function getCertificateByNumber(num: string): Certificate | undefined {
