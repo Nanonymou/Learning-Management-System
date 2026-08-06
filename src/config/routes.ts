@@ -18,6 +18,7 @@ export const ROUTES = {
   admin: '/admin',
   adminCompanySettings: '/admin/company-settings',
   adminPeserta: '/admin/peserta',
+  adminDaftarHadir: '/admin/daftar-hadir',
   adminMateri: '/admin/materi',
   adminBankSoal: '/admin/bank-soal',
   adminLokasi: '/admin/lokasi',

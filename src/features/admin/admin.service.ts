@@ -1,5 +1,7 @@
+import type { Attendance, Certificate, QuizResult, User } from '@/types/domain';
 import { listUsers, deleteUser } from '@/features/participant/participant.service';
 import {
+  listAttendance,
   attendanceForUser,
   removeAttendanceForUser,
 } from '@/features/attendance/attendance.service';
@@ -47,6 +49,38 @@ export function getReportRows(): ReportRow[] {
       attempts: results.length,
     };
   });
+}
+
+/** Seluruh daftar hadir (semua peserta), terbaru dahulu. */
+export function getAllAttendance(): (Attendance & { positionLabel: string; locationLabel: string })[] {
+  return [...listAttendance()]
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+    .map((a) => ({
+      ...a,
+      positionLabel: a.positionName || positionName(a.positionId),
+      locationLabel: a.locationName || locationName(a.locationId),
+    }));
+}
+
+/** Detail lengkap satu peserta untuk halaman riwayat admin. */
+export interface ParticipantDetail {
+  user: User;
+  attendance: Attendance[];
+  results: QuizResult[];
+  certificate: Certificate | undefined;
+}
+
+export function getParticipantDetail(userId: string): ParticipantDetail | undefined {
+  const user = listUsers().find((u) => u.id === userId);
+  if (!user) return undefined;
+  return {
+    user,
+    attendance: attendanceForUser(userId).sort((a, b) =>
+      b.attendDate.localeCompare(a.attendDate),
+    ),
+    results: resultsForUser(userId),
+    certificate: certificatesForUser(userId)[0],
+  };
 }
 
 /** Reset hasil ujian peserta (hasil + sertifikat terkait). */

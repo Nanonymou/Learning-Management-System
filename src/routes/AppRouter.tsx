@@ -29,6 +29,8 @@ const LoginPage = lazy(() => import('@/features/auth/pages/LoginPage'));
 const CompanySettingsPage = lazy(() => import('@/features/company-settings/pages/CompanySettingsPage'));
 const AdminDashboardPage = lazy(() => import('@/features/admin/pages/AdminDashboardPage'));
 const ManagePesertaPage = lazy(() => import('@/features/admin/pages/ManagePesertaPage'));
+const ParticipantDetailPage = lazy(() => import('@/features/admin/pages/ParticipantDetailPage'));
+const ManageAttendancePage = lazy(() => import('@/features/admin/pages/ManageAttendancePage'));
 const ManageJabatanPage = lazy(() => import('@/features/admin/pages/ManageJabatanPage'));
 const ManageLokasiPage = lazy(() => import('@/features/admin/pages/ManageLokasiPage'));
 const ManageBankSoalPage = lazy(() => import('@/features/admin/pages/ManageBankSoalPage'));
@@ -72,6 +74,8 @@ const router = createBrowserRouter([
           { path: ROUTES.admin, element: <Lazy><AdminDashboardPage /></Lazy> },
           { path: ROUTES.adminCompanySettings, element: <Lazy><CompanySettingsPage /></Lazy> },
           { path: ROUTES.adminPeserta, element: <Lazy><ManagePesertaPage /></Lazy> },
+          { path: '/admin/peserta/:userId', element: <Lazy><ParticipantDetailPage /></Lazy> },
+          { path: ROUTES.adminDaftarHadir, element: <Lazy><ManageAttendancePage /></Lazy> },
           { path: ROUTES.adminBankSoal, element: <Lazy><ManageBankSoalPage /></Lazy> },
           { path: ROUTES.adminJabatan, element: <Lazy><ManageJabatanPage /></Lazy> },
           { path: ROUTES.adminLokasi, element: <Lazy><ManageLokasiPage /></Lazy> },

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Trash2, RotateCcw, Users } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Trash2, RotateCcw, Users, Eye } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -21,6 +22,7 @@ type Pending =
 
 export default function ManagePesertaPage() {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [rows, setRows] = useState<ReportRow[]>(() => getReportRows());
   const [pending, setPending] = useState<Pending>(null);
 
@@ -89,6 +91,14 @@ export default function ManagePesertaPage() {
                       </td>
                       <td className="p-3">
                         <div className="flex gap-1">
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => navigate(`/admin/peserta/${r.userId}`)}
+                            title="Lihat detail & riwayat"
+                          >
+                            <Eye className="h-4 w-4" />
+                          </Button>
                           <Button
                             size="sm"
                             variant="ghost"

@@ -50,6 +50,7 @@ export const NAVIGATION: NavGroup[] = [
     items: [
       { label: 'Dashboard Admin', to: ROUTES.admin, icon: LayoutDashboard, end: true },
       { label: 'Peserta', to: ROUTES.adminPeserta, icon: Users },
+      { label: 'Daftar Hadir', to: ROUTES.adminDaftarHadir, icon: ClipboardCheck },
       { label: 'Bank Soal', to: ROUTES.adminBankSoal, icon: Database },
       { label: 'Lokasi', to: ROUTES.adminLokasi, icon: MapPin },
       { label: 'Jabatan', to: ROUTES.adminJabatan, icon: Briefcase },
