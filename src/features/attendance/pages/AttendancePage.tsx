@@ -1,6 +1,6 @@
 import { useMemo, useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CheckCircle2, CalendarClock } from 'lucide-react';
+import { CheckCircle2, CalendarClock, Lock } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -16,6 +16,7 @@ import { getCurrentUser } from '@/features/participant/participant.service';
 import { submitAttendance, hasAttendedToday } from '../attendance.service';
 import { formatDate, todayISO, nowTime } from '@/lib/utils/format';
 import { ROUTES } from '@/config/routes';
+import { LOCKED_LOCATION } from '@/config/training';
 
 export default function AttendancePage() {
   const navigate = useNavigate();
@@ -67,7 +68,10 @@ export default function AttendancePage() {
     e.preventDefault();
 
     let locId = locationId;
-    if (locId === '__new__') {
+    // Lokasi dikunci: selalu pakai lokasi yang ditetapkan.
+    if (LOCKED_LOCATION) {
+      locId = addLocation(LOCKED_LOCATION).id;
+    } else if (locId === '__new__') {
       if (!newLocation.trim()) {
         toast('Isi nama lokasi baru.', 'error');
         return;
@@ -136,20 +140,27 @@ export default function AttendancePage() {
 
               <div className="space-y-2">
                 <Label htmlFor="location">Lokasi</Label>
-                <Select
-                  id="location"
-                  value={locationId}
-                  onChange={(e) => setLocationId(e.target.value)}
-                  required
-                >
-                  <option value="">Pilih lokasi…</option>
-                  {locations.map((l) => (
-                    <option key={l.id} value={l.id}>
-                      {l.name}
-                    </option>
-                  ))}
-                  <option value="__new__">+ Tambah lokasi baru…</option>
-                </Select>
+                {LOCKED_LOCATION ? (
+                  <div className="flex h-10 items-center gap-2 rounded-md border border-input bg-muted px-3 text-sm">
+                    <Lock className="h-4 w-4 shrink-0 text-muted-foreground" />
+                    <span className="font-medium">{LOCKED_LOCATION}</span>
+                  </div>
+                ) : (
+                  <Select
+                    id="location"
+                    value={locationId}
+                    onChange={(e) => setLocationId(e.target.value)}
+                    required
+                  >
+                    <option value="">Pilih lokasi…</option>
+                    {locations.map((l) => (
+                      <option key={l.id} value={l.id}>
+                        {l.name}
+                      </option>
+                    ))}
+                    <option value="__new__">+ Tambah lokasi baru…</option>
+                  </Select>
+                )}
               </div>
             </div>
 
