@@ -19,7 +19,6 @@ const ChapterPage = lazy(() => import('@/features/material/pages/ChapterPage'));
 const AttendancePage = lazy(() => import('@/features/attendance/pages/AttendancePage'));
 const ExamPage = lazy(() => import('@/features/quiz/pages/ExamPage'));
 const ResultPage = lazy(() => import('@/features/quiz/pages/ResultPage'));
-const CertificateListPage = lazy(() => import('@/features/certificate/pages/CertificateListPage'));
 const CertificateDetailPage = lazy(() => import('@/features/certificate/pages/CertificateDetailPage'));
 const ValidatePage = lazy(() => import('@/features/certificate/pages/ValidatePage'));
 const HistoryPage = lazy(() => import('@/features/history/pages/HistoryPage'));
@@ -63,8 +62,6 @@ const router = createBrowserRouter([
       { path: ROUTES.daftarHadir, element: <Lazy><AttendancePage /></Lazy> },
       { path: ROUTES.ujian, element: <Lazy><ExamPage /></Lazy> },
       { path: '/ujian/hasil/:resultId', element: <Lazy><ResultPage /></Lazy> },
-      { path: ROUTES.sertifikat, element: <Lazy><CertificateListPage /></Lazy> },
-      { path: '/sertifikat/:certId', element: <Lazy><CertificateDetailPage /></Lazy> },
       { path: ROUTES.riwayat, element: <Lazy><HistoryPage /></Lazy> },
 
       // Admin — terkunci di balik login (RequireAuth)
@@ -80,6 +77,7 @@ const router = createBrowserRouter([
           { path: ROUTES.adminJabatan, element: <Lazy><ManageJabatanPage /></Lazy> },
           { path: ROUTES.adminLokasi, element: <Lazy><ManageLokasiPage /></Lazy> },
           { path: ROUTES.adminSertifikat, element: <Lazy><ManageSertifikatPage /></Lazy> },
+          { path: '/admin/sertifikat/:certId', element: <Lazy><CertificateDetailPage /></Lazy> },
           { path: ROUTES.adminExport, element: <Lazy><ExportPage /></Lazy> },
         ],
       },

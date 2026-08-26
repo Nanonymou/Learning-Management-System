@@ -123,7 +123,7 @@ export default function ParticipantDetailPage() {
               <Button
                 size="sm"
                 variant="outline"
-                onClick={() => navigate(`/sertifikat/${certificate.id}`)}
+                onClick={() => navigate(`/admin/sertifikat/${certificate.id}`)}
               >
                 Lihat Sertifikat
               </Button>

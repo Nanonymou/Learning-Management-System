@@ -8,7 +8,6 @@ export const ROUTES = {
   materi: '/materi',
   daftarHadir: '/daftar-hadir',
   ujian: '/ujian',
-  sertifikat: '/sertifikat',
   riwayat: '/riwayat',
 
   // Autentikasi admin

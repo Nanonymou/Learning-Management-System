@@ -41,7 +41,6 @@ export const NAVIGATION: NavGroup[] = [
       { label: 'Materi', to: ROUTES.materi, icon: BookOpen },
       { label: 'Daftar Hadir', to: ROUTES.daftarHadir, icon: ClipboardCheck },
       { label: 'Ujian', to: ROUTES.ujian, icon: FileQuestion },
-      { label: 'Sertifikat', to: ROUTES.sertifikat, icon: Award },
       { label: 'Riwayat Training', to: ROUTES.riwayat, icon: History },
     ],
   },

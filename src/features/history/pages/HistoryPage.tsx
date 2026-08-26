@@ -54,9 +54,9 @@ export default function HistoryPage() {
                         {r.status === 'lulus' ? 'Lulus' : 'Tidak Lulus'}
                       </Badge>
                       {cert && (
-                        <Button size="sm" variant="outline" onClick={() => navigate(`/sertifikat/${cert.id}`)}>
-                          <Award className="h-4 w-4" /> Sertifikat
-                        </Button>
+                        <Badge tone="primary">
+                          <Award className="h-3.5 w-3.5" /> Bersertifikat
+                        </Badge>
                       )}
                     </div>
                   </CardContent>

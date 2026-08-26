@@ -55,7 +55,7 @@ export default function ManageSertifikatPage() {
                         <Button
                           size="sm"
                           variant="ghost"
-                          onClick={() => navigate(`/sertifikat/${c.id}`)}
+                          onClick={() => navigate(`/admin/sertifikat/${c.id}`)}
                           title="Lihat & unduh sertifikat"
                         >
                           <Eye className="h-4 w-4" />

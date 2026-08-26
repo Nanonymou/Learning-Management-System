@@ -33,7 +33,7 @@ export default function CertificateDetailPage() {
     return (
       <div className="space-y-4">
         <PageHeader title="Sertifikat tidak ditemukan" />
-        <Button onClick={() => navigate(ROUTES.sertifikat)}>Kembali</Button>
+        <Button onClick={() => navigate(ROUTES.adminSertifikat)}>Kembali</Button>
       </div>
     );
   }
@@ -53,7 +53,7 @@ export default function CertificateDetailPage() {
   return (
     <div className="space-y-6">
       <button
-        onClick={() => navigate(ROUTES.sertifikat)}
+        onClick={() => navigate(ROUTES.adminSertifikat)}
         className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4" /> Daftar Sertifikat

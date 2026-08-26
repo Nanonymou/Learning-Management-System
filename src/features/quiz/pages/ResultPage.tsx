@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CheckCircle2, XCircle, RotateCcw, Award, Check, X } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
@@ -17,13 +17,11 @@ export default function ResultPage() {
   const navigate = useNavigate();
   const { settings } = useCompanySettings();
   const review = useMemo(() => getReview(resultId), [resultId]);
-  const [certId, setCertId] = useState<string | null>(null);
 
-  // Terbitkan sertifikat otomatis bila lulus.
+  // Terbitkan sertifikat otomatis bila lulus (dikelola admin).
   useEffect(() => {
     if (review?.status === 'lulus') {
-      const cert = issueCertificate(review.id, settings);
-      if (cert) setCertId(cert.id);
+      issueCertificate(review.id, settings);
     }
   }, [review, settings]);
 
@@ -69,11 +67,19 @@ export default function ResultPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-stretch gap-2">
             {passed ? (
-              <Button onClick={() => navigate(certId ? `/sertifikat/${certId}` : ROUTES.sertifikat)}>
-                <Award className="h-4 w-4" /> Lihat Sertifikat
-              </Button>
+              <>
+                <Badge tone="success" className="justify-center py-1.5">
+                  <Award className="h-3.5 w-3.5" /> Sertifikat diterbitkan
+                </Badge>
+                <p className="max-w-[13rem] text-xs text-muted-foreground">
+                  Sertifikat dikelola dan dicetak oleh admin.
+                </p>
+                <Button variant="outline" onClick={() => navigate(ROUTES.riwayat)}>
+                  Lihat Riwayat
+                </Button>
+              </>
             ) : (
               <Button onClick={() => navigate(ROUTES.ujian)}>
                 <RotateCcw className="h-4 w-4" /> Ulangi Ujian
