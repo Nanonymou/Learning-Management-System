@@ -8,8 +8,8 @@ import { readJson, writeJson } from '@/lib/storage/localStore';
  * implementasi ini dengan Supabase Auth (interface tetap sama).
  */
 const CREDENTIALS = {
-  username: 'adminLMS',
-  password: 'lms123',
+  username: 'hseadenbuma',
+  password: 'nutrisi123',
 };
 
 const AUTH_KEY = 'adminAuth';
