@@ -18,7 +18,7 @@ import { shuffle } from '@/lib/utils/format';
 import { getCurrentUser } from '@/features/participant/participant.service';
 import { positionName, locationName } from '@/features/master/master.service';
 import { syncQuizResult } from '@/lib/supabase/sync';
-import { questionBank } from './data/questionBank';
+import { getQuestions } from './bank.service';
 
 /** Ujian: seleksi soal acak, penilaian, dan pembahasan. */
 
@@ -40,8 +40,9 @@ export function startExam(userId: string): ExamSession {
   const lastMap = readJson<LastSetMap>(LAST_SET_KEY, {});
   const previous = new Set(lastMap[userId] ?? []);
 
-  let pool = questionBank.filter((q) => !previous.has(q.id));
-  if (pool.length < EXAM_QUESTION_COUNT) pool = [...questionBank];
+  const bank = getQuestions();
+  let pool = bank.filter((q) => !previous.has(q.id));
+  if (pool.length < EXAM_QUESTION_COUNT) pool = [...bank];
 
   const picked = shuffle(pool).slice(0, EXAM_QUESTION_COUNT);
   lastMap[userId] = picked.map((q) => q.id);
@@ -69,7 +70,7 @@ export interface SubmitInput {
 /** Nilai jawaban di sisi service (kunci jawaban tak pernah ke UI ujian). */
 export function submitExam(input: SubmitInput): QuizResult {
   const details: QuizAnswerDetail[] = input.answers.map((a) => {
-    const q = questionBank.find((x) => x.id === a.questionId)!;
+    const q = getQuestions().find((x) => x.id === a.questionId)!;
     const correct = q.options.find((o) => o.isCorrect)!;
     const selected = q.options.find((o) => o.id === a.selectedOptionId) ?? null;
     return {
@@ -164,5 +165,5 @@ export function resetResultsForUser(userId: string): void {
 }
 
 export function questionBankSize(): number {
-  return questionBank.length;
+  return getQuestions().length;
 }

@@ -43,4 +43,5 @@ export const STORAGE_KEYS = {
   positions: 'positions',
   locations: 'locations',
   bookmarks: 'bookmarks',
+  questionBank: 'questionBank',
 } as const;
