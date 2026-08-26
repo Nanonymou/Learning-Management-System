@@ -19,7 +19,7 @@ const tones = {
 
 export function StatCard({ icon: Icon, label, value, tone = 'primary' }: StatCardProps) {
   return (
-    <Card>
+    <Card className="transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-card-hover">
       <CardContent className="flex items-center gap-4 p-5">
         <div className={cn('flex h-12 w-12 items-center justify-center rounded-lg', tones[tone])}>
           <Icon className="h-6 w-6" />

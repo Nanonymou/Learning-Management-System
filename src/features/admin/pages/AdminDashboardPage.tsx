@@ -73,7 +73,7 @@ export default function AdminDashboardPage() {
             <Link
               key={l.to}
               to={l.to}
-              className="flex items-center gap-3 rounded-lg border border-border p-3 transition-colors hover:bg-muted"
+              className="flex items-center gap-3 rounded-lg border border-border p-3 transition-all duration-200 ease-out hover:border-primary/40 hover:bg-muted hover:shadow-sm hover:-translate-y-0.5"
             >
               <l.icon className="h-5 w-5 text-primary" />
               <span className="flex-1 text-sm font-medium">{l.label}</span>

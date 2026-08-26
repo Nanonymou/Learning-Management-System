@@ -59,7 +59,7 @@ export default function MateriPage() {
             <button
               key={hit.chapter.id}
               onClick={() => navigate(`/materi/${hit.chapter.id}`)}
-              className="flex w-full items-center gap-3 rounded-lg border border-border bg-card p-4 text-left transition-colors hover:bg-muted"
+              className="flex w-full items-center gap-3 rounded-lg border border-border bg-card p-4 text-left transition-all duration-200 ease-out hover:border-primary/40 hover:bg-muted hover:shadow-sm hover:-translate-y-0.5"
             >
               <BookOpen className="h-5 w-5 shrink-0 text-primary" />
               <div className="min-w-0 flex-1">
@@ -81,7 +81,7 @@ export default function MateriPage() {
               <li key={ch.id}>
                 <button
                   onClick={() => navigate(`/materi/${ch.id}`)}
-                  className="flex w-full items-center gap-3 rounded-lg border border-border bg-card p-4 text-left transition-colors hover:bg-muted"
+                  className="flex w-full items-center gap-3 rounded-lg border border-border bg-card p-4 text-left transition-all duration-200 ease-out hover:border-primary/40 hover:bg-muted hover:shadow-sm hover:-translate-y-0.5"
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground">
                     {ch.code}

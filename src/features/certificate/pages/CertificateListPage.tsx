@@ -39,7 +39,7 @@ export default function CertificateListPage() {
             <li key={c.id}>
               <button
                 onClick={() => navigate(`/sertifikat/${c.id}`)}
-                className="flex w-full items-center gap-3 rounded-lg border border-border bg-card p-4 text-left transition-colors hover:bg-muted"
+                className="flex w-full items-center gap-3 rounded-lg border border-border bg-card p-4 text-left transition-all duration-200 ease-out hover:border-primary/40 hover:bg-muted hover:shadow-sm hover:-translate-y-0.5"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-warning/15 text-warning">
                   <Award className="h-5 w-5" />
