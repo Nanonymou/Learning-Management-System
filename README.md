@@ -33,11 +33,30 @@ mengubah komponen. Materi berasal dari ingest DOCX (`scripts/ingest-docx.py`
 
 ```bash
 npm install
-cp .env.example .env   # opsional pada tahap ini (Supabase belum diperlukan)
+cp .env.example .env   # isi kredensial Supabase (lihat SUPABASE_SETUP.md)
 npm run dev            # http://localhost:5173
 ```
 
 Perintah lain: `npm run build`, `npm run preview`, `npm run typecheck`, `npm run lint`.
+
+## Deploy ke Vercel
+
+Aplikasi ini SPA (Vite + React Router). Konfigurasi Vercel sudah disiapkan di
+[`vercel.json`](vercel.json) — framework `vite`, output `dist`, dan **rewrite
+semua rute ke `index.html`** agar URL langsung/refresh (mis. `/admin`,
+`/materi/bab-1`, `/validasi/:nomor`) tidak 404.
+
+Langkah:
+1. Vercel → **Add New → Project** → import repo GitHub ini.
+2. Framework Preset terdeteksi **Vite** (Build `npm run build`, Output `dist`).
+3. **Environment Variables** (Settings → Environment Variables) — WAJIB agar
+   Supabase aktif, karena Vite menanam `VITE_*` saat build:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+4. **Deploy**. Setelah env diubah, lakukan **Redeploy** (build ulang).
+
+> Pastikan skema Supabase sudah dijalankan (`supabase/schema.sql`) — lihat
+> [`SUPABASE_SETUP.md`](SUPABASE_SETUP.md).
 
 ## Struktur Folder
 
