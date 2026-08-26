@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Judul dinamis diambil dari Company Settings saat runtime -->
+    <title>Learning Management System</title>
+    <script>
+      // Terapkan tema sedini mungkin untuk mencegah "flash of wrong theme"
+      (function () {
+        try {
+          var t = localStorage.getItem('lms-theme');
+          var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var dark = t ? t === 'dark' : systemDark;
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
