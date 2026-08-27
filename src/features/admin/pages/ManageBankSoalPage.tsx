@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, Plus, Pencil, Trash2, RotateCcw, Database } from 'lucide-react';
+import { Check, Plus, Pencil, Trash2, RotateCcw, Database, FileSpreadsheet } from 'lucide-react';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -8,6 +8,7 @@ import { Modal } from '@/components/ui/Modal';
 import { ConfirmDialog } from '@/components/ui/ConfirmDialog';
 import { EmptyState } from '@/components/feedback/EmptyState';
 import { useToast } from '@/providers/ToastProvider';
+import { useCompanySettings } from '@/features/company-settings/CompanySettingsProvider';
 import type { Question } from '@/types/domain';
 import {
   getQuestions,
@@ -17,14 +18,29 @@ import {
   resetBank,
   type QuestionInput,
 } from '@/features/quiz/bank.service';
+import { exportBankSoalExcel } from '../bankExport.service';
 import { QuestionForm } from '../components/QuestionForm';
 
 export default function ManageBankSoalPage() {
   const { toast } = useToast();
+  const { settings } = useCompanySettings();
   const [questions, setQuestions] = useState<Question[]>(() => getQuestions());
   const [editing, setEditing] = useState<Question | 'new' | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<Question | null>(null);
   const [resetConfirm, setResetConfirm] = useState(false);
+  const [exporting, setExporting] = useState(false);
+
+  const handleExport = async () => {
+    setExporting(true);
+    try {
+      await exportBankSoalExcel(settings.trainingName);
+      toast('File Excel bank soal diunduh.', 'success');
+    } catch {
+      toast('Gagal membuat file Excel.', 'error');
+    } finally {
+      setExporting(false);
+    }
+  };
 
   const refresh = () => setQuestions(getQuestions());
 
@@ -65,7 +81,16 @@ export default function ManageBankSoalPage() {
         title="Bank Soal"
         description={`${questions.length} soal • setiap ujian mengambil 10 soal acak.`}
         actions={
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleExport}
+              loading={exporting}
+              disabled={questions.length === 0}
+            >
+              <FileSpreadsheet className="h-4 w-4" /> Unduh Excel
+            </Button>
             <Button variant="outline" size="sm" onClick={() => setResetConfirm(true)}>
               <RotateCcw className="h-4 w-4" /> Reset
             </Button>
